@@ -1,0 +1,49 @@
+{
+  "name": "plain-tpl",
+  "version": "1.0.1",
+  "description": "candy-ui基础模板",
+  "author": "liliang <liang.li02@hand-china.com>",
+  "private": true,
+  "scripts": {
+    "i": "cnpm i --registry=http://47.106.186.140:17001",
+    "local": "builder serve local --port 18094",
+    "dev": "builder build dev",
+    "uat": "builder build uat",
+    "uatls": "builder build uat --localService --port 18095 -s docs -n",
+    "ls": "builder ls -n --port 18096 -s docs",
+    "rel": "builder build rel",
+    "prod": "builder build prod"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.0",
+    "@candy/ui": "^1.0.31",
+    "@candy/utils": "^1.0.18",
+    "@candy/vue-plugin-memory-params": "^1.0.3",
+    "@candy/vuex-plugin-persistence": "^1.0.1",
+    "@upman/builder": "^1.0.15",
+    "animate.css": "^3.7.0",
+    "animejs": "^3.0.1",
+    "dayjs": "^1.7.7",
+    "element-ui": "^2.6.1",
+    "js-cookie": "^2.2.0",
+    "lodash": "^4.17.11",
+    "mockjs": "^1.0.1-beta3",
+    "querystring": "^0.2.0",
+    "vue": "^2.6.7",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0"
+  },
+  "devDependencies": {
+    "@upman/builder": "^1.0.14",
+    "@upman/node-utils": "^1.0.2",
+    "@vue/cli-plugin-babel": "3.4.1",
+    "@vue/cli-plugin-eslint": "^3.5.1",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-transform-imports": "^1.5.1",
+    "lodash-webpack-plugin": "^0.11.5"
+  },
+  "engines": {
+    "node": ">= 8.0.0",
+    "npm": ">= 6.0.0"
+  }
+}
