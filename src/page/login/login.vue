@@ -83,61 +83,66 @@
 }
 </style>
 <template>
-<cd-page :class="$style.page">
-  <header :class="$style.header">
-    <a :class="$style.logo">
-      <img :class="$style.image" src="./logo.png" alt="logo">
-      <span :class="$style.text">CBMP 易捷云核心新业务管控平台</span>
-    </a>
-    <div :class="$style.navbar">
-      <a href="">注册</a>
-    </div>
-  </header>
-  <section :class="$style.body">
-    <el-form :class="$style.formBox"
-      :model="model"
-      :rules="rules"
-      ref="form"
-      @submit.native.prevent="submit">
-      <p :class="$style.title">登录</p>
-      <el-form-item prop="account">
-        <el-input placeholder="邮箱/手机号"
-          v-model="model.account"
-          size="medium"></el-input>
-      </el-form-item>
-      <el-form-item prop="account">
-        <el-input placeholder="密码"
-          type="password"
-          v-model="model.psw"
-          size="medium"></el-input>
-      </el-form-item>
-      <el-row>
-        <el-col :span="12">
-          <el-form-item>
-            <el-checkbox v-model="model.savePsw"></el-checkbox>
-            &nbsp;&nbsp;记住密码
-          </el-form-item>
-        </el-col>
-        <el-col :span="12" style="text-align: right">
-          <el-form-item>
-            <a>注册</a>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <a>忘记密码</a>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <cd-button type="primary"
-          native-type="submit"
-          long size="mini">登录</cd-button>
-      </el-row>
-    </el-form>
-    <footer :class="$style.footer">
-      <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备14039535号-14</a>
-      &nbsp;&nbsp; Copyright&copy;2018 深圳易捷云科技有限公司
-    </footer>
-  </section>
-</cd-page>
+  <cd-page :class="$style.page">
+    <header :class="$style.header">
+      <a :class="$style.logo">
+        <img :class="$style.image"
+          src="./logo.png"
+          alt="logo">
+        <span :class="$style.text">CBMP 易捷云核心新业务管控平台</span>
+      </a>
+      <div :class="$style.navbar">
+        <a href="">注册</a>
+      </div>
+    </header>
+    <section :class="$style.body">
+      <el-form ref="form"
+        :class="$style.formBox"
+        :model="model"
+        :rules="rules"
+        @submit.native.prevent="submit">
+        <p :class="$style.title">登录</p>
+        <el-form-item prop="account">
+          <el-input v-model="model.account"
+            placeholder="邮箱/手机号"
+            size="medium"></el-input>
+        </el-form-item>
+        <el-form-item prop="account">
+          <el-input v-model="model.psw"
+            placeholder="密码"
+            type="password"
+            size="medium"></el-input>
+        </el-form-item>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item>
+              <el-checkbox v-model="model.savePsw"></el-checkbox>
+              &nbsp;&nbsp;记住密码
+            </el-form-item>
+          </el-col>
+          <el-col :span="12"
+            style="text-align: right">
+            <el-form-item>
+              <a>注册</a>
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+              <a>忘记密码</a>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <cd-button type="primary"
+            native-type="submit"
+            long
+            size="medium">登录</cd-button>
+        </el-row>
+      </el-form>
+      <footer :class="$style.footer">
+        <a href="http://www.miitbeian.gov.cn/"
+          target="_blank">沪ICP备14039535号-14</a>
+        &nbsp;&nbsp; Copyright&copy;2018 深圳易捷云科技有限公司
+      </footer>
+    </section>
+  </cd-page>
 </template>
 <script>
 import {

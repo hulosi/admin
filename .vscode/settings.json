@@ -1,0 +1,29 @@
+{
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "editor.detectIndentation": false,
+  "vetur.validation.template": false,
+  "window.zoomLevel": 0,
+  "explorer.confirmDelete": false,
+  "todohighlight.isEnable": false,
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "workbench.colorTheme": "Visual Studio Light",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "git.autofetch": true,
+  "eslint.alwaysShowStatus": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "element-helper.version": "2.5",
+  "search.followSymlinks": false,
+  "files.eol": "\n",
+}

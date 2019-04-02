@@ -1,0 +1,16 @@
+{
+	"Try catch finally": {
+		"scope": "javascript,typescript",
+		"prefix": "tcf",
+		"body": [
+			"try {",
+      "$1",
+      "} catch (error) {",
+      "$2",
+      "} finally {",
+      "$3",
+      "}"
+		],
+		"description": "generatore try catch finally"
+	}
+}

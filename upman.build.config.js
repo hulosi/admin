@@ -160,7 +160,7 @@ class ConsoleMessageFilterPlugin {
 
 const assetsDir = 'static';
 const outputDir = 'docs';
-const appName = 'CBMP';
+const appName = 'admin-element';
 
 // 定义常量
 process.env.VUE_APP_APP_NAME = appName;

@@ -10,6 +10,12 @@ module.exports = {
     'plugin:vue/recommended',
     '@vue/airbnb',
   ],
+  env: {
+    commonjs: true,
+    es6: true,
+    mocha: true,
+    browser: true,
+  },
   rules: {
     'no-console': [process.env.NODE_ENV === 'production' ? 'error' : 1, { allow: ["warn", "error"] }],
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -55,6 +61,11 @@ module.exports = {
       ]
     }],
     'vue/require-default-prop': 0,
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": true,
+      "optionalDependencies": false,
+      "peerDependencies": true,
+    }],
   },
   parserOptions: {
     parser: 'babel-eslint',

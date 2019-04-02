@@ -3,7 +3,6 @@
  */
 /* disbled-eslint */
 import Vue from 'vue';
-import './configure';
 import App from './App.vue';
 
 import store from './store';
@@ -25,10 +24,10 @@ export default () => {
     el: '#app',
     router,
     store,
+    components: { App },
     render(createElement) {
       return createElement(App);
     },
-    components: { App },
   });
   afterList.forEach(after => after({ vue, router, store }));
 };

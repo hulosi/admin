@@ -1,12 +1,12 @@
 {
-  "name": "plain-tpl",
+  "name": "admin-element",
   "version": "1.0.1",
-  "description": "candy-ui基础模板",
+  "description": "element风格模板",
   "author": "liliang <liang.li02@hand-china.com>",
   "private": true,
   "scripts": {
     "i": "cnpm i --registry=http://47.106.186.140:17001",
-    "local": "builder serve local --port 18094",
+    "local": "builder serve local --port 18120",
     "dev": "builder build dev",
     "uat": "builder build uat",
     "uatls": "builder build uat --localService --port 18095 -s docs -n",
@@ -38,6 +38,7 @@
     "@upman/node-utils": "^1.0.2",
     "@vue/cli-plugin-babel": "3.4.1",
     "@vue/cli-plugin-eslint": "^3.5.1",
+    "axios": "^0.18.0",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-transform-imports": "^1.5.1",
     "lodash-webpack-plugin": "^0.11.5"
