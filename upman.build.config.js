@@ -167,6 +167,7 @@ process.env.VUE_APP_APP_NAME = appName;
 
 module.exports = {
   appName,
+  indexGenerator: [{}],
   compiler: {
     lintOnSave: 'error',
     assetsDir,

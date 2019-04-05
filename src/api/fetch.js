@@ -310,8 +310,8 @@ export default class Fetch {
   static makePagingRequest(url, option = {}, callback, ins) {
     return function list(query = {}, pageIndex = 1, pageSize = 10, sortBy = []) {
       let params = query;
-      params._pageNum = pageIndex - 1;
-      params._pageSize = pageSize;
+      params.pageNum = pageIndex;
+      params.pageSize = pageSize;
 
       if (sortBy) {
         const jsonItems = sortBy

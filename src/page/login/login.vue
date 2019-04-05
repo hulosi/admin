@@ -102,13 +102,13 @@
         :rules="rules"
         @submit.native.prevent="submit">
         <p :class="$style.title">登录</p>
-        <el-form-item prop="account">
-          <el-input v-model="model.account"
-            placeholder="邮箱/手机号"
+        <el-form-item prop="username">
+          <el-input v-model="model.username"
+            placeholder="账号"
             size="medium"></el-input>
         </el-form-item>
-        <el-form-item prop="account">
-          <el-input v-model="model.psw"
+        <el-form-item prop="password">
+          <el-input v-model="model.password"
             placeholder="密码"
             type="password"
             size="medium"></el-input>
@@ -150,6 +150,10 @@ import {
   CdPanel,
 } from '@candy/ui/component';
 import u from '@candy/utils';
+import {
+  userApi,
+  menuApi,
+} from 'api@';
 
 export default {
   name: 'Login',
@@ -161,22 +165,19 @@ export default {
     const that = this;
     return {
       rules: {
-        account: [
-          { required: true, message: '请输入邮箱或者手机号', trigger: 'blur' },
+        username: [
+          { required: true, message: '请输入账号', trigger: 'blur' },
           {
             validator: that.makeValidator_(async (rule, value) => {
-              if (u.string.isEmail(value)) {
+              if (u.string.isAccount(value)) {
                 return true;
               }
-              if (u.string.isPhone(value)) {
-                return true;
-              }
-              throw new Error('请输入手机号码或者邮箱');
+              throw new Error('请输入合法的账号');
             }),
             trigger: 'blur',
           },
         ],
-        psw: [
+        password: [
           {
             required: true,
             message: '请输入密码',
@@ -191,8 +192,8 @@ export default {
         ],
       },
       model: {
-        account: '',
-        psw: '',
+        username: '',
+        password: '',
         savePsw: '',
       },
     };
@@ -201,10 +202,24 @@ export default {
   },
   methods: {
     async submit() {
-      await this.$refs.form.validate();
+      try {
+        await this.$refs.form.validate();
+      } catch (error) {
+        this.$message.warn('输入信息有误');
+        return;
+      }
 
-      // TODO 登录逻辑
-      this.push_('/system');
+      await this.withLoading_(async () => {
+        const userAuthInfo = await userApi.login(this.model);
+        this.setUserAuthInfo_(userAuthInfo);
+        const [userBaseInfo, menuList] = await Promise.all([
+          userApi.getCurrentUser(),
+          menuApi.getRoleMenus(),
+        ]);
+        this.setUserBaseInfo_(userBaseInfo);
+        this.setMenuList_(menuList);
+      });
+      this.push_('/');
     },
   },
   created() {

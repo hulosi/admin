@@ -31,15 +31,17 @@
 }
 </style>
 <template>
-  <cd-page v-bind="$attrs" v-on="$listeners">
-    <slot name="header" v-if="!hideHeader">
+  <cd-page v-bind="$attrs"
+    v-on="$listeners">
+    <slot v-if="!hideHeader"
+      name="header">
       <div :class="$style.header">
-        <cb-icon v-if="showBack"
+        <hl-icon v-if="showBack"
           :class="$style.back"
           type="fanhui"
-          @click.native="back()"></cb-icon>
-        <span :class="$style.title"
-          v-if="title">{{title}}</span>
+          @click.native="back()"></hl-icon>
+        <span v-if="title"
+          :class="$style.title">{{ title }}</span>
         <div :class="$style.headerInner">
           <slot name="header-inner"></slot>
         </div>
@@ -52,14 +54,14 @@
 </template>
 <script>
 import {
-  CbIcon,
+  HlIcon,
 } from 'comp@';
 
 export default {
-  name: 'CbPage',
-  componentName: 'CbPage',
+  name: 'HlPage',
+  componentName: 'HlPage',
   components: {
-    CbIcon,
+    HlIcon,
   },
   mixins: [],
   inheritAttrs: false,

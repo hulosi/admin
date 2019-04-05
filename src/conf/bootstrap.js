@@ -7,7 +7,7 @@ import App from './App.vue';
 
 import store from './store';
 import router from './router';
-import * as custom from './custom';
+import * as custom from './configure';
 
 const beforeList = [];
 const afterList = [];

@@ -47,38 +47,38 @@
     router
     unique-opened>
     <template v-for="menu in menus">
-      <el-submenu v-if="menu.childs"
-        :key="menu.id"
-        :index="menu.id">
+      <el-submenu v-if="menu.subMenus"
+        :key="menu.menuId"
+        :index="menu.route">
         <template slot="title">
-          <cb-icon :type="menu.icon"
-            :class="$style.icon"></cb-icon>
-          <span>{{ menu.text }}</span>
+          <hl-icon :type="menu.icon"
+            :class="$style.icon"></hl-icon>
+          <span>{{ menu.menuName }}</span>
         </template>
-        <el-menu-item v-for="childMenu in menu.childs"
-          :key="childMenu.id"
-          :index="childMenu.router">{{ childMenu.text }}</el-menu-item>
+        <el-menu-item v-for="childMenu in menu.subMenus"
+          :key="childMenu.menuId"
+          :index="childMenu.route">{{ childMenu.menuName }}</el-menu-item>
       </el-submenu>
       <el-menu-item v-else
-        :key="menu.id"
-        :index="menu.router">
-        <cb-icon :type="menu.icon"
-          :class="$style.icon"></cb-icon>
-        <span slot="title">{{ menu.text }}</span>
+        :key="menu.menuId"
+        :index="menu.route">
+        <hl-icon :type="menu.icon"
+          :class="$style.icon"></hl-icon>
+        <span slot="title">{{ menu.menuName }}</span>
       </el-menu-item>
     </template>
   </el-menu>
 </template>
 <script>
 import {
-  CbIcon,
+  HlIcon,
 } from 'comp@';
 import { mapState } from 'vuex';
 
 export default {
   name: 'MainParentLayoutSiderMenu',
   components: {
-    CbIcon,
+    HlIcon,
   },
   data() {
     return {
@@ -94,13 +94,18 @@ export default {
   methods: {
   },
   created() {
+    if (this.$route.path === process.env.BASE_URL) {
+      this.active = this.$route.path;
+      return;
+    }
     this.menus.forEach((menu) => {
-      if (!menu.childs || !menu.childs.length) {
+      if (!menu.subMenus || !menu.subMenus.length) {
         return;
       }
-      menu.childs.forEach((subMenu) => {
-        if (this.$route.path.indexOf(subMenu.router) !== -1) {
-          this.active = subMenu.router;
+      menu.subMenus.forEach((subMenu) => {
+        console.warn(this.$route.path, subMenu.route);
+        if (this.$route.path.indexOf(subMenu.route) !== -1) {
+          this.active = subMenu.route;
         }
       });
     });

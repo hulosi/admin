@@ -58,52 +58,51 @@
 
 </style>
 <template>
-<header :class="$style.navbar">
-  <div v-if="collapse"
-    @click="toggleMenu"
-    :class="$style.menuSwitchBox">
-    <cb-icon
-      type="menuon"
-      :class="[$style.menuSwitch, 'hidden-sm-and-down', 'hidden-sm-only']"></cb-icon>
-  </div>
-  <div v-else
-    @click="toggleMenu"
-    :class="[$style.menuSwitchBox, 'hidden-sm-and-down', 'hidden-sm-only']">
-    <cb-icon
-      type="menuoff"
-      :class="$style.menuSwitch"></cb-icon>
-  </div>
-  <div :class="[$style.menuSwitchBox, 'hidden-md-and-up']"
-    @click="openMenu">
-    <cb-icon :class="$style.menuSwitch"
-      type="menuon"></cb-icon>
-    <cd-drawer v-model="menuVisible"
-      left
-      :background="$style.varSiderColor"
-      fill>
-      <md-menu></md-menu>
-    </cd-drawer>
-  </div>
-  <div :class="$style.right">
-    <el-dropdown trigger="click">
-      <cd-button size="mini">语言</cd-button>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item>中文</el-dropdown-item>
-        <el-dropdown-item>英语</el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
-    <div :class="$style.iconBox">
-      <cb-icon type="navbar-tongzhi"></cb-icon>
+  <header :class="$style.navbar">
+    <div v-if="collapse"
+      :class="$style.menuSwitchBox"
+      @click="toggleMenu">
+      <hl-icon :class="[$style.menuSwitch, 'hidden-sm-and-down', 'hidden-sm-only']"
+        type="menuon"></hl-icon>
     </div>
-    <div :class="$style.avatar">
-      <img src="https://files.cloopm.com/avatar/a3080ab2-296f-4242-b23b-00bc17f980f3.png" alt="用户头像">
+    <div v-else
+      :class="[$style.menuSwitchBox, 'hidden-sm-and-down', 'hidden-sm-only']"
+      @click="toggleMenu">
+      <hl-icon :class="$style.menuSwitch"
+        type="menuoff"></hl-icon>
     </div>
-  </div>
-</header>
+    <div :class="[$style.menuSwitchBox, 'hidden-md-and-up']"
+      @click="openMenu">
+      <hl-icon :class="$style.menuSwitch"
+        type="menuon"></hl-icon>
+      <cd-drawer v-model="menuVisible"
+        :background="$style.varSiderColor"
+        left
+        fill>
+        <md-menu></md-menu>
+      </cd-drawer>
+    </div>
+    <div :class="$style.right">
+      <el-dropdown trigger="click">
+        <cd-button size="mini">语言</cd-button>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>中文</el-dropdown-item>
+          <el-dropdown-item>英语</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <div :class="$style.iconBox">
+        <hl-icon type="navbar-tongzhi"></hl-icon>
+      </div>
+      <div :class="$style.avatar">
+        <img src="https://files.cloopm.com/avatar/a3080ab2-296f-4242-b23b-00bc17f980f3.png"
+          alt="用户头像">
+      </div>
+    </div>
+  </header>
 </template>
 <script>
 import {
-  CbIcon,
+  HlIcon,
 } from 'comp@';
 import { mapState } from 'vuex';
 import MdMenu from '../common/menu.vue';
@@ -111,7 +110,7 @@ import MdMenu from '../common/menu.vue';
 export default {
   name: 'MainParentLayoutNavbarNavbar',
   components: {
-    CbIcon,
+    HlIcon,
     MdMenu,
   },
   data() {

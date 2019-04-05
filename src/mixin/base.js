@@ -6,8 +6,12 @@ import {
   Validator,
   Lang,
   Error,
+  Loading,
 } from '@candy/ui/mixin';
-import user from './user';
+import {
+  menu,
+  user,
+} from 'mx@';
 
 export default {
   mixins: [
@@ -18,14 +22,12 @@ export default {
     Validator,
     Lang,
     Error,
+    menu,
     user,
+    Loading,
   ],
   methods: {
-    to_(url) {
-      window.location.href = url;
-    },
-    goto_(url) {
-      window.open(url);
-    },
+  },
+  created() {
   },
 };
