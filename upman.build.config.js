@@ -308,7 +308,9 @@ module.exports = {
           from: nodeUtils.resolve('html'),
           to: nodeUtils.resolve(outputDir),
           toType: 'dir',
-          ignore: ['.DS_Store', 'index_build.html', 'index_server.html', 'index.html'],
+          ignore: [
+            '.DS_Store', 'index_build.html', 'index_server.html', 'index.html', 'index_develop.html',
+          ],
         }]]);
       if (config.plugins.has('html')) {
         config.plugin('html').tap((args) => {
