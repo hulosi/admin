@@ -33,17 +33,19 @@
 }
 </style>
 <template>
-<div :class="$style.sider">
-  <div :class="$style.siderInner">
-    <div :class="$style.logo">
-      <img src="./logo.png" alt="logo" :class="$style.img"/>
-      <span :class="$style.title">
-        CBPM&nbsp;易捷云
-      </span>
+  <div :class="$style.sider">
+    <div :class="$style.siderInner">
+      <div :class="$style.logo">
+        <img :class="$style.img"
+          src="./logo.png"
+          alt="logo"/>
+        <span :class="$style.title">
+          CBPM&nbsp;易捷云
+        </span>
+      </div>
+      <md-menu></md-menu>
     </div>
-    <md-menu></md-menu>
   </div>
-</div>
 </template>
 <script>
 import MdMenu from '../common/menu.vue';

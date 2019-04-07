@@ -38,15 +38,17 @@
   <div :class="$style.layout">
     <md-sider ref="sider"
       class="hidden-sm-and-down hidden-sm-only"></md-sider>
-    <div :class="$style.content"
+    <div
       :style="{
         maxWidth: `calc(100% - ${siderWidth}px)`
-      }">
+      }"
+      :class="$style.content">
       <md-navbar></md-navbar>
-      <transition mode="out-in"
+      <transition
         :enter-class="$style.pageEnter"
         :enter-active-class="$style.pageEnterActive"
-        :leave-active-class="$style.pageLeaveActive">
+        :leave-active-class="$style.pageLeaveActive"
+        mode="out-in">
         <router-view></router-view>
       </transition>
     </div>
