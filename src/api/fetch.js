@@ -174,7 +174,7 @@ export default class Fetch {
     }
 
     const message = err.message.split('-')[1];
-    const showErrorFn = _.get(window, '$h.$message.error');
+    const showErrorFn = _.get(window, '$c.$message.error');
     showErrorFn && showErrorFn(message);
 
     throw err;
@@ -199,9 +199,9 @@ export default class Fetch {
               throw new Error(`${errPrefix()}700-${data.message}`);
             },
             async 760() {
-              const $message = _.get(window, '$h.$message');
+              const $message = _.get(window, '$c.$message');
               $message && $message.closeAll();
-              const $confirm = _.get(window, '$h.$confirm');
+              const $confirm = _.get(window, '$c.$confirm');
               if ($confirm) {
                 await $confirm(data.message, '提示', {
                   confirmButtonText: '确定',

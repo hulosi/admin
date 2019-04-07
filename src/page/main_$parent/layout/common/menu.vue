@@ -103,7 +103,6 @@ export default {
         return;
       }
       menu.subMenus.forEach((subMenu) => {
-        console.warn(this.$route.path, subMenu.route);
         if (this.$route.path.indexOf(subMenu.route) !== -1) {
           this.active = subMenu.route;
         }

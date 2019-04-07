@@ -27,4 +27,24 @@ api.login = loginInfo => authAjax.post('/auth/token', {
  */
 api.listLoginLogs = Fetch.makePagingRequest('/loginLogs');
 
+/**
+ * 分页查询用户
+ */
+api.paging = Fetch.makePagingRequest('/users');
+
+/**
+ * 查询用户
+ */
+api.get = id => ajax.get(`/users/${id}`);
+
+/**
+ * 新增用户
+ */
+api.add = user => ajax.post('/users', user);
+
+/**
+ * 修改用户
+ */
+api.update = user => ajax.put('/users', user);
+
 export default api;

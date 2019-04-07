@@ -35,6 +35,18 @@ export default {
             }
             return _subMenu;
           });
+          _item.subMenus.push({
+            icon: 'book',
+            menuId: 998,
+            menuName: '接口统计',
+            route: '/admin-element/sys/apiAudit',
+          });
+          _item.subMenus.push({
+            icon: 'book',
+            menuId: 999,
+            menuName: '登录日志',
+            route: '/admin-element/sys/loginLog',
+          });
           return _item;
         });
       menus.unshift({

@@ -21,16 +21,13 @@ export default {
   },
   data() {
     return {
-      url: '//at.alicdn.com/t/font_1102612_lejxzg66mi.js',
+      url: '//at.alicdn.com/t/font_1102612_ycfmo3zzjr.js',
       prefix: 'hulo-icon',
     };
   },
   computed: {
   },
   methods: {
-    show() {
-      this.$refs.preview.show();
-    },
   },
   created() {
   },

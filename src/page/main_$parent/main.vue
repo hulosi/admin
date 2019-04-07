@@ -118,7 +118,7 @@
           </div>
           <div :class="$style.text">
             <p>
-              你好,{{ get_(userBaseInfo_, 'userName') }},欢迎回来
+              你好,{{ userName }},欢迎回来
             </p>
             <p :class="$style.desc">
               {{ get_(userBaseInfo_, 'roleName') }}
@@ -127,7 +127,7 @@
         </cd-container>
         <cd-panel :class="$style.apiAudits"
           fixed-footer
-          fixed-heder
+          fixed-header
           plain-footer
           title="接口审计信息">
           <cd-table :data="apiAudits"
@@ -228,9 +228,9 @@
         style="height: 100%">
         <cd-panel
           :class="$style.active"
-          title="动态"
+          title="登录日志"
           fixed-footer
-          fixed-heder
+          fixed-header
           plain-footer
           style="height: 100%">
           <cd-table :data="logs"
@@ -273,7 +273,7 @@
         style="height: 100%">
         <cd-panel title="公告"
           style="height: 100%"
-          fixed-heder>
+          fixed-header>
           <el-row v-for="notice in notices"
             :gutter="3"
             :key="notice.id"
@@ -332,6 +332,12 @@ export default {
       logTotal: 0,
       logPageIndex: 1,
     };
+  },
+  computed: {
+    userName() {
+      return this.get_(this.userBaseInfo_, 'lastName')
+        || this.get_(this.userBaseInfo_, 'userName');
+    },
   },
   watch: {
     apiAuditPageIndex() {

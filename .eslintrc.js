@@ -61,11 +61,12 @@ module.exports = {
       ]
     }],
     'vue/require-default-prop': 0,
-    "import/no-extraneous-dependencies": ["error", {
+    'import/no-extraneous-dependencies': ["error", {
       "devDependencies": true,
       "optionalDependencies": false,
       "peerDependencies": true,
     }],
+    'vue/name-property-casing': 0,
   },
   parserOptions: {
     parser: 'babel-eslint',
